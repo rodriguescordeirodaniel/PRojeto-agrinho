@@ -1,115 +1,1474 @@
-/* Configurações gerais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ================================================================
+   AGRINHO 2026 — assets/css/style.css
+   Tema: Agro forte, futuro sustentável:
+         equilíbrio entre produção e meio ambiente
+   Autor : [SEU NOME]
+   Escola: [NOME DA ESCOLA]
+   Data  : 2025
+
+   ÍNDICE
+   ──────────────────────────────────────────────────────────────
+   1.  Variáveis (Custom Properties) .................. :root
+   2.  Reset & Base .................................... html, body…
+   3.  Utilitários ..................................... .container, .btn…
+   4.  Animação fade-in ................................ .fade-in
+   5.  Navegação / Header .............................. .nav
+   6.  Hero (seção inicial) ............................ .hero
+   7.  Padrão de seção ................................. .secao
+   8.  Seção 1 — Produção Agrícola ..................... .dado-card, .tech-card
+   9.  Seção 2 — Sustentabilidade ...................... .pratica-card
+  10.  Seção 3 — Desafios Ambientais .................. .problema, .barra
+  11.  Seção 4 — Soluções e Futuro .................... .solucao-card
+  12.  Seção Bônus A — Calculadora .................... .calculadora
+  13.  Seção Bônus B — Quiz ........................... .quiz
+  14.  Seção 5 — Contato .............................. .contato, .campo
+  15.  Rodapé .......................................... .rodape
+  16.  Responsividade (Media Queries) ................. @media
+   ================================================================ */
+
+
+/* ================================================================
+   1. VARIÁVEIS (CSS Custom Properties)
+   ──────────────────────────────────────────────────────────────
+   Centralizamos aqui todas as cores, fontes e tamanhos do site.
+   Para mudar uma cor em todo o site, basta alterar UMA linha aqui.
+   ================================================================ */
+:root {
+
+  /* ── Paleta de cores ────────────────────────────────────────── */
+
+  /* Verdes — cor principal do agronegócio sustentável */
+  --verde-escuro  : #1A4731;   /* fundo de seções escuras          */
+  --verde         : #2D6A4F;   /* cor primária: botões, títulos     */
+  --verde-medio   : #52B788;   /* acentos, hovers                  */
+  --verde-claro   : #95D5B2;   /* bordas suaves, destaques leves   */
+  --verde-mudo    : #D8F3DC;   /* fundos de seções verdes claras   */
+
+  /* Tons de terra — trazem identidade rural ao site */
+  --terra-escura  : #6B4226;
+  --terra         : #A0522D;
+
+  /* Dourado — destaque e chamadas para ação */
+  --ouro          : #C8960C;
+  --ouro-claro    : #F4D03F;
+
+  /* Azul — informação, gráficos */
+  --azul          : #1B4F72;
+
+  /* Neutros — textos e fundos */
+  --branco        : #FAFAF7;   /* fundo principal do site          */
+  --cinza-claro   : #F0EDE5;   /* fundo alternativo de seções      */
+  --cinza-medio   : #D3D1C7;   /* bordas, separadores              */
+  --cinza         : #888780;   /* textos secundários               */
+  --texto         : #1C2B20;   /* texto principal (quase preto)    */
+  --texto-sec     : #4A5E4D;   /* texto secundário (verde-escuro)  */
+
+  /* Alerta */
+  --vermelho      : #C0392B;
+  --vermelho-bg   : #FDECEA;
+
+  /* ── Tipografia ─────────────────────────────────────────────── */
+  --fonte-titulo  : 'Playfair Display', Georgia, serif;
+  --fonte-corpo   : 'Inter', Arial, sans-serif;
+
+  /* ── Espaçamentos ───────────────────────────────────────────── */
+  --espacamento-sm : 0.5rem;    /*  8px */
+  --espacamento-md : 1rem;      /* 16px */
+  --espacamento-lg : 1.5rem;    /* 24px */
+  --espacamento-xl : 2.5rem;    /* 40px */
+  --espacamento-2xl: 5rem;      /* 80px */
+
+  /* ── Bordas arredondadas ────────────────────────────────────── */
+  --raio-sm   : 6px;
+  --raio-md   : 12px;
+  --raio-lg   : 20px;
+  --raio-pill : 100px;  /* cápsulas — badges, botões arredondados */
+
+  /* ── Sombras ────────────────────────────────────────────────── */
+  --sombra-card  : 0 4px 24px rgba(45, 106, 79, 0.10);
+  --sombra-hover : 0 8px 32px rgba(45, 106, 79, 0.18);
+
+  /* ── Transição padrão ───────────────────────────────────────── */
+  --transicao : 0.25s ease;
+
+  /* ── Largura máxima do container ───────────────────────────── */
+  --max-largura : 1100px;
 }
 
+
+/* ================================================================
+   2. RESET & BASE
+   ──────────────────────────────────────────────────────────────
+   Remove margens e paddings padrão do navegador e define
+   comportamentos básicos de box-model, scroll e fontes.
+   ================================================================ */
+
+/* Remove margens/paddings e define box-sizing em todos os elementos */
+*,
+*::before,
+*::after {
+  margin      : 0;
+  padding     : 0;
+  box-sizing  : border-box;   /* largura inclui borda e padding    */
+}
+
+/* Scroll suave ao clicar em links âncora (#secao) */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;             /* base para cálculos em rem        */
+}
+
+/* Configuração geral do corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f7f2;
-    color: #333;
+  font-family    : var(--fonte-corpo);
+  font-size      : 1rem;       /* 16px                             */
+  font-weight    : 400;
+  line-height    : 1.7;        /* espaço entre linhas              */
+  color          : var(--texto);
+  background     : var(--branco);
+  /* Evita que o site quebre em telas muito pequenas */
+  min-width      : 320px;
 }
 
-/* Cabeçalho */
-header {
-    background-color: #2e7d32;
-    color: white;
-    text-align: center;
-    padding: 20px;
+/* Remove marcadores de listas quando usadas para layout */
+ul, ol {
+  list-style: none;
 }
 
-header h1 {
-    margin-bottom: 10px;
+/* Remove sublinhado padrão de links */
+a {
+  text-decoration : none;
+  color           : inherit;
 }
 
-/* Menu */
-nav ul {
-    list-style: none;
-    margin-top: 15px;
+/* Imagens responsivas por padrão */
+img {
+  max-width : 100%;
+  height    : auto;
+  display   : block;
 }
 
-nav ul li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    color: #c8e6c9;
-}
-
-/* Conteúdo principal */
-main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* Seções */
-section {
-    background-color: white;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-section h2 {
-    color: #2e7d32;
-    margin-bottom: 10px;
-}
-
-/* Formulário */
-form input,
-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
+/* Botões herdam a fonte do site */
 button {
-    background-color: #2e7d32;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  font-family : inherit;
+  cursor      : pointer;
 }
 
-button:hover {
-    background-color: #1b5e20;
+/* Inputs e selects herdam a fonte do site */
+input,
+select,
+textarea {
+  font-family : inherit;
+  font-size   : inherit;
 }
 
-/* Rodapé */
-footer {
-    background-color: #2e7d32;
-    color: white;
-    text-align: center;
-    padding: 15px;
+/* Foco visível para acessibilidade (navegação por teclado) */
+:focus-visible {
+  outline        : 3px solid var(--verde-medio);
+  outline-offset : 3px;
+  border-radius  : var(--raio-sm);
 }
 
-/* Responsividade para celulares */
+
+/* ================================================================
+   3. UTILITÁRIOS
+   ──────────────────────────────────────────────────────────────
+   Classes reutilizáveis em vários lugares do site.
+   ================================================================ */
+
+/* Container: centraliza o conteúdo e limita a largura máxima */
+.container {
+  width      : 100%;
+  max-width  : var(--max-largura);
+  margin     : 0 auto;          /* centraliza horizontalmente       */
+  padding    : 0 var(--espacamento-lg);
+}
+
+/* ── Botões ──────────────────────────────────────────────────── */
+
+/* Estilo base compartilhado por todos os botões */
+.btn {
+  display         : inline-block;
+  padding         : 0.8rem 1.8rem;
+  border          : 2px solid transparent;
+  border-radius   : var(--raio-sm);
+  font-size       : 0.9rem;
+  font-weight     : 600;
+  letter-spacing  : 0.02em;
+  text-align      : center;
+  cursor          : pointer;
+  transition      : transform var(--transicao),
+                    background var(--transicao),
+                    border-color var(--transicao),
+                    color var(--transicao);
+}
+
+.btn:hover {
+  transform: translateY(-2px);  /* leve flutuação no hover         */
+}
+
+/* Botão primário — fundo dourado */
+.btn--primario {
+  background : var(--ouro);
+  color      : var(--texto);
+}
+
+.btn--primario:hover {
+  background : var(--ouro-claro);
+}
+
+/* Botão fantasma — bordas transparentes, texto branco */
+.btn--fantasma {
+  background   : transparent;
+  border-color : rgba(255, 255, 255, 0.5);
+  color        : #fff;
+}
+
+.btn--fantasma:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Botão largo — ocupa toda a largura disponível */
+.btn--largo {
+  width      : 100%;
+  padding    : 0.9rem;
+  font-size  : 1rem;
+}
+
+
+/* ================================================================
+   4. ANIMAÇÃO FADE-IN
+   ──────────────────────────────────────────────────────────────
+   Elementos com .fade-in aparecem suavemente ao entrar na tela.
+   O JavaScript adiciona a classe .visivel via IntersectionObserver.
+   ================================================================ */
+.fade-in {
+  opacity   : 0;
+  transform : translateY(28px);   /* começa deslocado 28px abaixo  */
+  transition: opacity 0.7s ease,
+              transform 0.7s ease;
+}
+
+.fade-in.visivel {
+  opacity   : 1;
+  transform : translateY(0);      /* volta à posição original      */
+}
+
+
+/* ================================================================
+   5. NAVEGAÇÃO / HEADER
+   ──────────────────────────────────────────────────────────────
+   Barra fixa no topo com logo, links e botão hambúrguer (mobile).
+   ================================================================ */
+
+/* Header — fixa no topo, fundo semitransparente */
+#cabecalho {
+  position        : fixed;
+  top             : 0;
+  left            : 0;
+  right           : 0;
+  z-index         : 1000;        /* fica acima de todo o conteúdo  */
+  background      : rgba(250, 250, 247, 0.96);
+  backdrop-filter : blur(12px);  /* desfoque do fundo (glassmorphism) */
+  border-bottom   : 1px solid rgba(45, 106, 79, 0.15);
+}
+
+/* Nav interna: flex para alinhar logo + links lado a lado */
+.nav {
+  display         : flex;
+  align-items     : center;
+  justify-content : space-between;
+  height          : 64px;
+  padding         : 0 var(--espacamento-lg);
+  max-width       : var(--max-largura);
+  margin          : 0 auto;
+}
+
+/* Logo — texto com parte em cor de destaque */
+.nav__logo {
+  font-family     : var(--fonte-titulo);
+  font-size       : 1.15rem;
+  font-weight     : 700;
+  color           : var(--verde);
+  letter-spacing  : -0.02em;
+  flex-shrink     : 0;           /* não encolhe quando falta espaço */
+}
+
+.nav__logo span {
+  color: var(--terra);           /* "Futuro" em cor de terra        */
+}
+
+/* Lista de links — exibida em linha no desktop */
+.nav__links {
+  display    : flex;
+  align-items: center;
+  gap        : 0;
+}
+
+/* Link individual de navegação */
+.nav__link {
+  display        : block;
+  padding        : 0.45rem 0.9rem;
+  font-size      : 0.8rem;
+  font-weight    : 500;
+  letter-spacing : 0.04em;
+  text-transform : uppercase;
+  color          : var(--texto-sec);
+  border-radius  : var(--raio-sm);
+  transition     : color var(--transicao),
+                   background var(--transicao);
+}
+
+.nav__link:hover {
+  color      : var(--verde);
+  background : var(--verde-mudo);
+}
+
+/* Link CTA destacado — botão verde na navbar */
+.nav__link--cta {
+  background : var(--verde);
+  color      : #fff !important;
+  margin-left: var(--espacamento-sm);
+}
+
+.nav__link--cta:hover {
+  background : var(--verde-medio);
+  color      : #fff !important;
+}
+
+/* ── Botão hambúrguer (visível apenas no mobile) ─────────────── */
+.nav__hamburger {
+  display         : none;       /* oculto no desktop               */
+  flex-direction  : column;
+  gap             : 5px;
+  background      : transparent;
+  border          : none;
+  padding         : 4px;
+  cursor          : pointer;
+}
+
+/* Cada traço do ícone hambúrguer */
+.nav__hamburger span {
+  display       : block;
+  width         : 24px;
+  height        : 2px;
+  background    : var(--verde);
+  border-radius : 2px;
+  transition    : transform var(--transicao), opacity var(--transicao);
+}
+
+/* Animação do hambúrguer quando o menu está aberto */
+.nav__hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav__hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ================================================================
+   6. HERO — SEÇÃO INICIAL
+   ──────────────────────────────────────────────────────────────
+   Banner de tela cheia com fundo escuro gradiente, slogan,
+   estatísticas e chamadas para ação.
+   ================================================================ */
+.hero {
+  min-height      : 100vh;       /* ocupa a tela toda               */
+  display         : flex;
+  flex-direction  : column;
+  align-items     : center;
+  justify-content : center;
+  text-align      : center;
+  padding         : 100px var(--espacamento-lg) 6rem;
+  /* Gradiente do escuro ao verde — transmite natureza e força */
+  background      : linear-gradient(
+    160deg,
+    #0D2C1A 0%,
+    #1A4731 40%,
+    #2D6A4F 80%,
+    #52B788 100%
+  );
+  position        : relative;
+  overflow        : hidden;
+}
+
+/* Badge temático — pequena pílula acima do título */
+.hero__badge {
+  display         : inline-block;
+  background      : rgba(255, 255, 255, 0.12);
+  border          : 1px solid rgba(255, 255, 255, 0.25);
+  color           : #B7E4C7;
+  font-size       : 0.78rem;
+  font-weight     : 600;
+  letter-spacing  : 0.1em;
+  text-transform  : uppercase;
+  padding         : 0.4rem 1.2rem;
+  border-radius   : var(--raio-pill);
+  margin-bottom   : var(--espacamento-xl);
+}
+
+/* Título principal — grande e impactante */
+.hero__titulo {
+  font-family    : var(--fonte-titulo);
+  font-size      : clamp(2.6rem, 7vw, 5.5rem);  /* responsivo      */
+  font-weight    : 900;
+  color          : #fff;
+  line-height    : 1.08;
+  letter-spacing : -0.03em;
+  max-width      : 900px;
+  margin-bottom  : var(--espacamento-lg);
+}
+
+/* Palavra em destaque — dourado dentro do título */
+.hero__destaque {
+  font-style : normal;
+  color      : var(--ouro-claro);
+}
+
+/* Subtítulo / pergunta norteadora */
+.hero__sub {
+  font-size   : 1.1rem;
+  font-weight : 300;
+  color       : rgba(255, 255, 255, 0.78);
+  max-width   : 620px;
+  margin      : 0 auto var(--espacamento-xl);
+}
+
+/* Grupo de botões CTA */
+.hero__btns {
+  display        : flex;
+  gap            : var(--espacamento-md);
+  flex-wrap      : wrap;          /* quebra em linha no mobile      */
+  justify-content: center;
+  margin-bottom  : var(--espacamento-2xl);
+}
+
+/* Bloco de estatísticas rápidas */
+.hero__stats {
+  display        : flex;
+  gap            : var(--espacamento-xl);
+  flex-wrap      : wrap;
+  justify-content: center;
+  position       : relative;
+  z-index        : 2;
+}
+
+/* Cada estatística individual */
+.stat {
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+}
+
+.stat__num {
+  font-family  : var(--fonte-titulo);
+  font-size    : 2.4rem;
+  font-weight  : 700;
+  color        : var(--ouro-claro);
+  line-height  : 1;
+}
+
+.stat__label {
+  font-size      : 0.75rem;
+  font-weight    : 500;
+  letter-spacing : 0.06em;
+  text-transform : uppercase;
+  color          : rgba(255, 255, 255, 0.55);
+  margin-top     : 0.3rem;
+}
+
+/* Onda decorativa na base do hero — transição visual suave */
+.hero__onda {
+  position    : absolute;
+  bottom      : 0;
+  left        : 0;
+  right       : 0;
+  height      : 120px;
+  background  : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='%23FAFAF7' d='M0,96L48,85C96,75,192,53,288,48C384,43,480,53,576,58C672,64,768,58,864,48C960,37,1056,21,1152,26C1248,32,1344,58,1392,69L1440,80L1440,120L0,120Z'/%3E%3C/svg%3E")
+              no-repeat bottom center;
+  background-size: cover;
+}
+
+
+/* ================================================================
+   7. PADRÃO DE SEÇÃO
+   ──────────────────────────────────────────────────────────────
+   Estilos compartilhados entre todas as seções de conteúdo.
+   ================================================================ */
+
+/* Seção base */
+.secao {
+  padding    : var(--espacamento-2xl) 0;
+  background : var(--branco);
+}
+
+/* Variantes de cor de fundo */
+.secao--verde      { background: var(--verde-mudo); }
+.secao--verde-mudo { background: #EAF4EE; }
+.secao--cinza      { background: var(--cinza-claro); }
+.secao--escura     {
+  background: linear-gradient(160deg, var(--verde-escuro), var(--verde));
+}
+
+/* Cabeçalho da seção (badge + título + descrição) */
+.secao__cabecalho {
+  margin-bottom: var(--espacamento-xl);
+}
+
+.secao__cabecalho--centro {
+  text-align: center;
+}
+
+.secao__cabecalho--centro .secao__desc {
+  margin: 0 auto var(--espacamento-xl);
+}
+
+/* Badge colorido acima do título — ex.: "Seção 1" */
+.secao__badge {
+  display        : inline-block;
+  font-size      : 0.72rem;
+  font-weight    : 700;
+  letter-spacing : 0.12em;
+  text-transform : uppercase;
+  color          : var(--verde);
+  background     : var(--verde-mudo);
+  padding        : 0.3rem 0.9rem;
+  border-radius  : var(--raio-pill);
+  margin-bottom  : 0.8rem;
+}
+
+/* Variante clara — para seções escuras */
+.secao__badge--claro {
+  background : rgba(255, 255, 255, 0.18);
+  color      : var(--ouro-claro);
+}
+
+/* Título da seção */
+.secao__titulo {
+  font-family    : var(--fonte-titulo);
+  font-size      : clamp(1.9rem, 4vw, 2.9rem);
+  font-weight    : 700;
+  color          : var(--texto);
+  line-height    : 1.15;
+  letter-spacing : -0.02em;
+  margin-bottom  : 0.8rem;
+}
+
+.secao__titulo--claro { color: #fff; }
+
+/* Subtítulo dentro da seção (h3) */
+.secao__subtitulo {
+  font-size     : 1.05rem;
+  font-weight   : 600;
+  color         : var(--texto);
+  margin-bottom : var(--espacamento-md);
+  margin-top    : var(--espacamento-xl);
+}
+
+/* Parágrafo descritivo abaixo do título */
+.secao__desc {
+  font-size     : 1rem;
+  color         : var(--texto-sec);
+  max-width     : 600px;
+  margin-bottom : var(--espacamento-xl);
+}
+
+.secao__desc--claro { color: rgba(255, 255, 255, 0.72); }
+
+
+/* ================================================================
+   8. SEÇÃO 1 — PRODUÇÃO AGRÍCOLA
+   ──────────────────────────────────────────────────────────────
+   Cards de dados econômicos e grid de tecnologias.
+   ================================================================ */
+
+/* Grade de dados — 2 colunas de igual tamanho */
+.grade-dados {
+  display               : grid;
+  grid-template-columns : repeat(2, 1fr);
+  gap                   : var(--espacamento-lg);
+  margin-bottom         : var(--espacamento-xl);
+}
+
+/* Card de dado econômico */
+.dado-card {
+  background    : var(--cinza-claro);
+  border-radius : var(--raio-md);
+  padding       : 1.8rem;
+  border-left   : 4px solid var(--verde);    /* destaque lateral  */
+}
+
+/* Número grande destacado */
+.dado-card__num {
+  display        : block;
+  font-family    : var(--fonte-titulo);
+  font-size      : 2.6rem;
+  font-weight    : 700;
+  color          : var(--verde);
+  line-height    : 1;
+  margin-bottom  : 0.4rem;
+}
+
+/* Rótulo do dado */
+.dado-card__label {
+  display        : block;
+  font-size      : 0.82rem;
+  font-weight    : 600;
+  color          : var(--texto-sec);
+  text-transform : uppercase;
+  letter-spacing : 0.05em;
+  margin-bottom  : 0.5rem;
+}
+
+/* Descrição complementar */
+.dado-card__desc {
+  font-size : 0.87rem;
+  color     : var(--cinza);
+}
+
+/* Grade de tecnologias — 4 colunas */
+.grade-tech {
+  display               : grid;
+  grid-template-columns : repeat(4, 1fr);
+  gap                   : var(--espacamento-md);
+}
+
+/* Card de tecnologia */
+.tech-card {
+  background    : #fff;
+  border        : 1px solid var(--cinza-medio);
+  border-radius : var(--raio-md);
+  padding       : var(--espacamento-lg);
+  text-align    : center;
+  transition    : transform var(--transicao), box-shadow var(--transicao);
+}
+
+.tech-card:hover {
+  transform  : translateY(-5px);
+  box-shadow : var(--sombra-hover);
+}
+
+/* Emoji de ícone do tech-card */
+.tech-card__icone {
+  display       : block;
+  font-size     : 2.5rem;
+  margin-bottom : 0.8rem;
+}
+
+.tech-card__nome {
+  font-size     : 0.92rem;
+  font-weight   : 600;
+  color         : var(--texto);
+  margin-bottom : 0.5rem;
+}
+
+.tech-card__desc {
+  font-size : 0.82rem;
+  color     : var(--cinza);
+}
+
+
+/* ================================================================
+   9. SEÇÃO 2 — SUSTENTABILIDADE
+   ──────────────────────────────────────────────────────────────
+   Grade de 3 colunas com cards de práticas ecológicas.
+   ================================================================ */
+
+/* Grade 3 colunas */
+.grade-praticas {
+  display               : grid;
+  grid-template-columns : repeat(3, 1fr);
+  gap                   : var(--espacamento-lg);
+}
+
+/* Card de prática sustentável */
+.pratica-card {
+  background    : #fff;
+  border-radius : var(--raio-md);
+  padding       : var(--espacamento-xl);
+  position      : relative;
+  overflow      : hidden;         /* garante que o ::before não vaze */
+  transition    : transform var(--transicao), box-shadow var(--transicao);
+}
+
+/* Linha colorida no topo do card */
+.pratica-card::before {
+  content       : '';
+  position      : absolute;
+  top           : 0;
+  left          : 0;
+  right         : 0;
+  height        : 4px;
+  background    : var(--verde-medio);
+}
+
+.pratica-card:hover {
+  transform  : translateY(-4px);
+  box-shadow : var(--sombra-card);
+}
+
+.pratica-card__icone {
+  display       : block;
+  font-size     : 2rem;
+  margin-bottom : var(--espacamento-md);
+}
+
+.pratica-card__titulo {
+  font-size     : 0.95rem;
+  font-weight   : 600;
+  color         : var(--texto);
+  margin-bottom : 0.5rem;
+}
+
+.pratica-card__texto {
+  font-size : 0.87rem;
+  color     : var(--texto-sec);
+}
+
+
+/* ================================================================
+  10. SEÇÃO 3 — DESAFIOS AMBIENTAIS
+   ──────────────────────────────────────────────────────────────
+   Layout de duas colunas: problemas + gráfico de barras.
+   ================================================================ */
+
+/* Layout de 2 colunas: problemas à esquerda, gráfico à direita */
+.desafios__layout {
+  display               : grid;
+  grid-template-columns : 1fr 1fr;
+  gap                   : var(--espacamento-2xl);
+  align-items           : start;
+}
+
+/* ── Problemas ───────────────────────────────────────────────── */
+
+/* Item de problema individual */
+.problema {
+  display       : flex;
+  gap           : var(--espacamento-md);
+  margin-bottom : var(--espacamento-xl);
+  padding-bottom: var(--espacamento-xl);
+  border-bottom : 1px solid var(--cinza-medio);
+}
+
+.problema:last-child {
+  border-bottom : none;
+  margin-bottom : 0;
+}
+
+/* Ícone do problema — círculo colorido */
+.problema__icone {
+  width           : 48px;
+  height          : 48px;
+  flex-shrink     : 0;           /* não encolhe com o flex          */
+  background      : var(--vermelho-bg);
+  border-radius   : 10px;
+  display         : flex;
+  align-items     : center;
+  justify-content : center;
+  font-size       : 1.4rem;
+}
+
+.problema__titulo {
+  font-size     : 0.95rem;
+  font-weight   : 600;
+  color         : var(--texto);
+  margin-bottom : 0.3rem;
+}
+
+.problema__texto {
+  font-size : 0.87rem;
+  color     : var(--texto-sec);
+}
+
+/* Dado de alerta em vermelho */
+.problema__alerta {
+  font-size   : 0.78rem;
+  font-weight : 700;
+  color       : var(--vermelho);
+  margin-top  : 0.4rem;
+}
+
+/* ── Gráfico de barras ───────────────────────────────────────── */
+
+.desafios__grafico {
+  background    : var(--cinza-claro);
+  border-radius : var(--raio-md);
+  padding       : var(--espacamento-xl);
+}
+
+.grafico__titulo {
+  font-size     : 0.95rem;
+  font-weight   : 600;
+  color         : var(--texto);
+  margin-bottom : var(--espacamento-lg);
+}
+
+/* Um item de barra (label + trilho) */
+.barra {
+  margin-bottom: var(--espacamento-md);
+}
+
+/* Linha com label e valor percentual */
+.barra__topo {
+  display         : flex;
+  justify-content : space-between;
+  align-items     : baseline;
+  margin-bottom   : 0.4rem;
+}
+
+.barra__label {
+  font-size  : 0.82rem;
+  font-weight: 500;
+  color      : var(--texto-sec);
+}
+
+.barra__valor {
+  font-size  : 0.82rem;
+  font-weight: 700;
+  color      : var(--texto);
+}
+
+/* Faixa de fundo da barra */
+.barra__trilho {
+  height        : 10px;
+  background    : rgba(0, 0, 0, 0.08);
+  border-radius : var(--raio-pill);
+  overflow      : hidden;
+}
+
+/* Preenchimento animado da barra (largura definida via JS) */
+.barra__fill {
+  height        : 100%;
+  width         : 0;             /* começa em 0, JS anima até o valor */
+  border-radius : var(--raio-pill);
+  transition    : width 1.5s ease;
+}
+
+/* Cores das barras */
+.barra__fill--vermelho { background: #E74C3C; }
+.barra__fill--laranja  { background: #E67E22; }
+.barra__fill--amarelo  { background: #F39C12; }
+.barra__fill--azul     { background: #3498DB; }
+.barra__fill--cinza    { background: #95A5A6; }
+
+
+/* ================================================================
+  11. SEÇÃO 4 — SOLUÇÕES E FUTURO
+   ──────────────────────────────────────────────────────────────
+   Grade de 2 colunas com cards sobre inovações.
+   ================================================================ */
+
+/* Grade 2 colunas */
+.grade-solucoes {
+  display               : grid;
+  grid-template-columns : repeat(2, 1fr);
+  gap                   : var(--espacamento-lg);
+}
+
+/* Card de solução — fundo semitransparente sobre fundo escuro */
+.solucao-card {
+  background  : rgba(255, 255, 255, 0.08);
+  border      : 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--raio-md);
+  padding     : var(--espacamento-xl);
+  transition  : background var(--transicao);
+}
+
+.solucao-card:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.solucao-card__icone {
+  display       : block;
+  font-size     : 2.2rem;
+  margin-bottom : var(--espacamento-md);
+}
+
+.solucao-card__titulo {
+  font-size     : 0.97rem;
+  font-weight   : 600;
+  color         : #fff;
+  margin-bottom : 0.5rem;
+  line-height   : 1.4;
+}
+
+.solucao-card__texto {
+  font-size : 0.87rem;
+  color     : rgba(255, 255, 255, 0.65);
+}
+
+/* Etiqueta "Inovação" — mini badge dourado */
+.tag-novo {
+  display       : inline-block;
+  font-size     : 0.68rem;
+  font-weight   : 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background    : var(--ouro);
+  color         : var(--texto);
+  padding       : 0.15rem 0.55rem;
+  border-radius : var(--raio-sm);
+  margin-left   : 0.4rem;
+  vertical-align: middle;
+}
+
+
+/* ================================================================
+  12. SEÇÃO BÔNUS A — CALCULADORA DE IMPACTO AMBIENTAL
+   ──────────────────────────────────────────────────────────────
+   Formulário de entrada + resultado + explicação lateral.
+   ================================================================ */
+
+/* Layout de 2 colunas: formulário + explicação */
+.calculadora__layout {
+  display               : grid;
+  grid-template-columns : 1fr 1fr;
+  gap                   : var(--espacamento-2xl);
+  align-items           : start;
+}
+
+/* Caixa branca do formulário */
+.calculadora__form {
+  background    : #fff;
+  border-radius : var(--raio-md);
+  padding       : var(--espacamento-xl);
+  box-shadow    : var(--sombra-card);
+}
+
+.calculadora__subtitulo {
+  font-size     : 1rem;
+  font-weight   : 600;
+  color         : var(--texto);
+  margin-bottom : var(--espacamento-lg);
+}
+
+/* ── Campos de formulário ────────────────────────────────────── */
+
+.campo {
+  margin-bottom: var(--espacamento-md);
+}
+
+.campo__label {
+  display       : block;
+  font-size     : 0.82rem;
+  font-weight   : 500;
+  color         : var(--texto-sec);
+  margin-bottom : 0.35rem;
+}
+
+/* Input de texto e número */
+.campo__input {
+  width         : 100%;
+  padding       : 0.65rem 0.9rem;
+  border        : 1px solid var(--cinza-medio);
+  border-radius : var(--raio-sm);
+  font-size     : 0.9rem;
+  color         : var(--texto);
+  background    : var(--branco);
+  transition    : border-color var(--transicao);
+  outline       : none;
+}
+
+.campo__input:focus {
+  border-color: var(--verde);
+}
+
+/* Select (lista suspensa) */
+.campo__select {
+  width         : 100%;
+  padding       : 0.65rem 0.9rem;
+  border        : 1px solid var(--cinza-medio);
+  border-radius : var(--raio-sm);
+  font-size     : 0.9rem;
+  color         : var(--texto);
+  background    : var(--branco);
+  transition    : border-color var(--transicao);
+  outline       : none;
+  appearance    : auto;          /* mantém seta nativa do navegador */
+}
+
+.campo__select:focus {
+  border-color: var(--verde);
+}
+
+/* Textarea — área de texto para mensagens */
+.campo__textarea {
+  width         : 100%;
+  padding       : 0.65rem 0.9rem;
+  border        : 1px solid var(--cinza-medio);
+  border-radius : var(--raio-sm);
+  font-size     : 0.9rem;
+  color         : var(--texto);
+  background    : var(--branco);
+  resize        : vertical;      /* só redimensiona verticalmente   */
+  transition    : border-color var(--transicao);
+  outline       : none;
+}
+
+.campo__textarea:focus {
+  border-color: var(--verde);
+}
+
+/* Dica de preenchimento abaixo do campo */
+.campo__dica {
+  display    : block;
+  font-size  : 0.75rem;
+  color      : var(--cinza);
+  margin-top : 0.25rem;
+}
+
+/* ── Resultado da calculadora ─────────────────────────────────── */
+
+.calculadora__resultado {
+  background    : var(--verde-mudo);
+  border        : 2px solid var(--verde-claro);
+  border-radius : var(--raio-md);
+  padding       : var(--espacamento-lg);
+  margin-top    : var(--espacamento-md);
+}
+
+.resultado__label {
+  font-size  : 0.8rem;
+  font-weight: 500;
+  color      : var(--verde);
+}
+
+.resultado__label--verde { color: var(--verde-escuro); }
+
+.resultado__num {
+  font-family : var(--fonte-titulo);
+  font-size   : 2.4rem;
+  font-weight : 700;
+  color       : var(--verde);
+  line-height : 1.1;
+}
+
+.resultado__num--verde { color: var(--verde-escuro); }
+
+.resultado__unidade {
+  font-size : 0.9rem;
+  color     : var(--texto-sec);
+}
+
+.resultado__separador {
+  border     : none;
+  border-top : 1px solid rgba(45, 106, 79, 0.2);
+  margin     : var(--espacamento-md) 0;
+}
+
+.resultado__dica {
+  font-size  : 0.82rem;
+  color      : var(--texto-sec);
+  margin-top : 0.8rem;
+}
+
+/* ── Explicação lateral da calculadora ───────────────────────── */
+
+.calculadora__explicacao {
+  padding-top: var(--espacamento-sm);
+}
+
+.calculadora__explicacao p {
+  font-size     : 0.9rem;
+  color         : var(--texto-sec);
+  margin-bottom : var(--espacamento-md);
+}
+
+/* Lista explicativa com emojis */
+.calc__lista {
+  display       : flex;
+  flex-direction: column;
+  gap           : var(--espacamento-md);
+}
+
+.calc__lista li {
+  display    : flex;
+  gap        : 0.8rem;
+  align-items: flex-start;
+  font-size  : 0.87rem;
+  color      : var(--texto-sec);
+}
+
+.calc__lista li span {
+  flex-shrink: 0;
+  font-size  : 1.2rem;
+}
+
+
+/* ================================================================
+  13. SEÇÃO BÔNUS B — QUIZ INTERATIVO
+   ──────────────────────────────────────────────────────────────
+   Barra de progresso, pergunta, opções e feedback.
+   ================================================================ */
+
+/* Caixa principal do quiz */
+.quiz {
+  max-width     : 700px;
+  margin        : 0 auto;
+  background    : var(--cinza-claro);
+  border-radius : var(--raio-md);
+  padding       : var(--espacamento-xl);
+}
+
+/* Barra de progresso — passos do quiz */
+.quiz__progresso {
+  display       : flex;
+  gap           : 0.4rem;
+  margin-bottom : var(--espacamento-xl);
+}
+
+/* Estilo base de cada passo (adicionado dinamicamente via JS) */
+/* Classes .ativo e .completo também aplicadas via JS */
+
+/* Texto da pergunta */
+.quiz__pergunta {
+  font-family   : var(--fonte-titulo);
+  font-size     : 1.25rem;
+  font-weight   : 700;
+  color         : var(--texto);
+  margin-bottom : var(--espacamento-lg);
+  line-height   : 1.4;
+}
+
+/* Container das opções */
+.quiz__opcoes {
+  display       : flex;
+  flex-direction: column;
+  gap           : 0.8rem;
+}
+
+/* Feedback após a resposta */
+.quiz__feedback {
+  margin-top    : var(--espacamento-md);
+  padding       : 0.85rem var(--espacamento-md);
+  border-radius : var(--raio-sm);
+  font-size     : 0.88rem;
+  display       : none;          /* JS alterna para block           */
+}
+
+.quiz__feedback--certo {
+  background : var(--verde-mudo);
+  color      : var(--verde);
+  display    : block;
+}
+
+.quiz__feedback--errado {
+  background : var(--vermelho-bg);
+  color      : var(--vermelho);
+  display    : block;
+}
+
+/* Botão "Próxima pergunta" */
+.quiz__btn-proximo {
+  margin-top: var(--espacamento-md);
+}
+
+/* Área de resultado final */
+.quiz__resultado {
+  text-align: center;
+  padding   : var(--espacamento-md) 0;
+}
+
+.quiz__pontos {
+  font-family : var(--fonte-titulo);
+  font-size   : 4rem;
+  font-weight : 900;
+  color       : var(--verde);
+  line-height : 1;
+}
+
+.quiz__msg {
+  font-size  : 1.05rem;
+  color      : var(--texto-sec);
+  margin-top : 0.5rem;
+}
+
+
+/* ================================================================
+  14. SEÇÃO 5 — CONTATO E CONSCIENTIZAÇÃO
+   ──────────────────────────────────────────────────────────────
+   Layout de 2 colunas: texto de conscientização + formulário.
+   ================================================================ */
+
+/* Layout 2 colunas */
+.contato__layout {
+  display               : grid;
+  grid-template-columns : 1fr 1fr;
+  gap                   : var(--espacamento-2xl);
+  align-items           : start;
+}
+
+/* Bloco de texto */
+.contato__texto p {
+  font-size     : 0.93rem;
+  color         : var(--texto-sec);
+  margin-bottom : var(--espacamento-md);
+}
+
+/* Citação destacada */
+.contato__frase {
+  font-family   : var(--fonte-titulo);
+  font-size     : 1.5rem;
+  font-weight   : 700;
+  color         : var(--verde);
+  line-height   : 1.3;
+  margin-bottom : var(--espacamento-md);
+  padding-left  : var(--espacamento-md);
+  border-left   : 4px solid var(--verde-medio);
+}
+
+/* Mini métricas do site */
+.contato__metricas {
+  display   : flex;
+  gap       : var(--espacamento-xl);
+  flex-wrap : wrap;
+  margin-top: var(--espacamento-xl);
+}
+
+.metrica {
+  display       : flex;
+  flex-direction: column;
+  align-items   : center;
+}
+
+.metrica__num {
+  font-family : var(--fonte-titulo);
+  font-size   : 2rem;
+  font-weight : 700;
+  color       : var(--verde);
+  line-height : 1;
+}
+
+.metrica__label {
+  font-size  : 0.75rem;
+  color      : var(--texto-sec);
+  font-weight: 500;
+  margin-top : 0.3rem;
+}
+
+/* Caixa branca do formulário */
+.contato__form-card {
+  background    : #fff;
+  border-radius : var(--raio-md);
+  padding       : var(--espacamento-xl);
+  box-shadow    : var(--sombra-card);
+}
+
+.contato__form-titulo {
+  font-size     : 1.05rem;
+  font-weight   : 600;
+  color         : var(--texto);
+  margin-bottom : var(--espacamento-lg);
+}
+
+/* Mensagem de sucesso — oculta até o envio */
+.form__sucesso {
+  background    : var(--verde-mudo);
+  border        : 1px solid var(--verde-claro);
+  border-radius : var(--raio-sm);
+  padding       : var(--espacamento-md);
+  font-size     : 0.88rem;
+  font-weight   : 500;
+  color         : var(--verde);
+  margin-top    : var(--espacamento-md);
+}
+
+
+/* ================================================================
+  15. RODAPÉ
+   ──────────────────────────────────────────────────────────────
+   Fundo escuro com logo, slogan, links e créditos.
+   ================================================================ */
+.rodape {
+  background : #0D2C1A;
+  color      : rgba(255, 255, 255, 0.55);
+  padding    : var(--espacamento-2xl) 0;
+  text-align : center;
+}
+
+.rodape__logo {
+  font-family   : var(--fonte-titulo);
+  font-size     : 1.5rem;
+  font-weight   : 700;
+  color         : var(--ouro-claro);
+  margin-bottom : 0.6rem;
+}
+
+.rodape__slogan {
+  font-size     : 0.88rem;
+  margin-bottom : var(--espacamento-lg);
+  line-height   : 1.6;
+}
+
+/* Links de navegação no rodapé */
+.rodape__links {
+  display        : flex;
+  gap            : var(--espacamento-lg);
+  justify-content: center;
+  flex-wrap      : wrap;
+  margin-bottom  : var(--espacamento-lg);
+}
+
+.rodape__links a {
+  font-size  : 0.82rem;
+  color      : rgba(255, 255, 255, 0.45);
+  transition : color var(--transicao);
+}
+
+.rodape__links a:hover {
+  color: var(--verde-medio);
+}
+
+.rodape__copy {
+  font-size: 0.75rem;
+}
+
+
+/* ================================================================
+  16. RESPONSIVIDADE — MEDIA QUERIES
+   ──────────────────────────────────────────────────────────────
+   Adaptações do layout para telas menores.
+   "Mobile first" recomendado, aqui usamos "desktop first"
+   pois o site foi projetado para desktop e adaptado ao mobile.
+   ================================================================ */
+
+/* ── Tablet — até 900px ──────────────────────────────────────── */
+@media (max-width: 900px) {
+
+  /* Grade de tecnologias: de 4 para 2 colunas */
+  .grade-tech {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Grade de práticas: de 3 para 2 colunas */
+  .grade-praticas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Desafios: de 2 colunas para 1 */
+  .desafios__layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Calculadora: de 2 colunas para 1 */
+  .calculadora__layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contato: de 2 colunas para 1 */
+  .contato__layout {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* ── Mobile — até 768px ──────────────────────────────────────── */
 @media (max-width: 768px) {
 
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
+  /* Mostra o botão hambúrguer */
+  .nav__hamburger {
+    display: flex;
+  }
 
-    main {
-        padding: 10px;
-    }
+  /* Menu de links vira lista vertical flutuante */
+  .nav__links {
+    display        : none;           /* oculto por padrão            */
+    position       : absolute;
+    top            : 64px;           /* logo abaixo da navbar        */
+    left           : 0;
+    right          : 0;
+    background     : rgba(250, 250, 247, 0.98);
+    backdrop-filter: blur(12px);
+    flex-direction : column;
+    padding        : var(--espacamento-md);
+    border-bottom  : 1px solid var(--cinza-medio);
+    z-index        : 999;
+  }
 
-    section {
-        padding: 15px;
-    }
+  /* Quando o JS adiciona a classe .aberto, o menu aparece */
+  .nav__links.aberto {
+    display: flex;
+  }
+
+  /* Links ocupam a largura total no mobile */
+  .nav__link {
+    padding    : 0.75rem var(--espacamento-md);
+    font-size  : 0.9rem;
+    border-radius: var(--raio-sm);
+  }
+
+  .nav__link--cta {
+    margin-left : 0;
+    margin-top  : var(--espacamento-sm);
+    text-align  : center;
+  }
+
+  /* Grade de dados: de 2 para 1 coluna */
+  .grade-dados {
+    grid-template-columns: 1fr;
+  }
+
+  /* Soluções: de 2 para 1 coluna */
+  .grade-solucoes {
+    grid-template-columns: 1fr;
+  }
+
+  /* Estatísticas do hero: menos espaço entre elas */
+  .hero__stats {
+    gap: var(--espacamento-lg);
+  }
+
+  /* Seção padrão: menos padding vertical */
+  .secao {
+    padding: var(--espacamento-xl) 0;
+  }
+
+  /* Métricas do contato: centralizadas */
+  .contato__metricas {
+    justify-content: center;
+  }
+
 }
+
+/* ── Celular pequeno — até 480px ─────────────────────────────── */
+@media (max-width: 480px) {
+
+  /* Tecnologias: de 2 para 1 coluna */
+  .grade-tech {
+    grid-template-columns: 1fr;
+  }
+
+  /* Práticas: de 2 para 1 coluna */
+  .grade-praticas {
+    grid-template-columns: 1fr;
+  }
+
+  /* Botões do hero empilhados */
+  .hero__btns {
+    flex-direction: column;
+    align-items   : center;
+  }
+
+  /* Ajuste de padding do container em telas muito pequenas */
+  .container {
+    padding: 0 var(--espacamento-md);
+  }
+
+  /* Hero com menos padding no topo */
+  .hero {
+    padding-top: 90px;
+  }
+
+  /* Texto do rodapé menor */
+  .rodape__links {
+    flex-direction: column;
+    gap           : var(--espacamento-sm);
+    align-items   : center;
+  }
+
+}
+
