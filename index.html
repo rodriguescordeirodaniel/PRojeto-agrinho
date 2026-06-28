@@ -1,94 +1,969 @@
-<!DOCTYPE html>    
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-    <header>
-        <h1>Agro Forte, Futuro Sustentável</h1>
-        <p>Equilíbrio entre produção e meio ambiente</p>
+  <head>
+    <!-- ============================================================
+         AGRINHO 2026 — index.html
+         Tema: Agro forte, futuro sustentável:
+               equilíbrio entre produção e meio ambiente
+         Autor: [SEU NOME]
+         Escola: [NOME DA ESCOLA]
+         Data: 2025
+    ============================================================ -->
 
-        <nav>
-            <ul>
-                <li><a href="#producao">Produção Agrícola</a></li>
-                <li><a href="#sustentabilidade">Sustentabilidade</a></li>
-                <li><a href="#desafios">Desafios Ambientais</a></li>
-                <li><a href="#solucoes">Soluções e Futuro</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+    <!-- Codificação e viewport responsivo -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO básico -->
+    <meta name="description"
+      content="Site educativo sobre sustentabilidade no agronegócio: tecnologia, produção agrícola e preservação ambiental — Agrinho 2026." />
+    <meta name="keywords"
+      content="agronegócio, sustentabilidade, agricultura de precisão, meio ambiente, Agrinho 2026" />
+    <meta name="author" content="[SEU NOME]" />
+
+    <!-- Título da aba do navegador -->
+    <title>Agro Forte, Futuro Sustentável | AGRINHO 2026</title>
+
+    <!-- Favicon (substitua pelo seu arquivo .ico ou .png) -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+
+    <!-- Google Fonts: Playfair Display (títulos) + Inter (corpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+
+    <!-- Folha de estilos principal (será criada em assets/css/style.css) -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+  </head>
+
+  <body>
+
+    <!-- ============================================================
+         CABEÇALHO + NAVEGAÇÃO
+         Fixado no topo com menu responsivo (hambúrguer no mobile)
+    ============================================================ -->
+    <header id="cabecalho">
+      <nav class="nav" role="navigation" aria-label="Menu principal">
+
+        <!-- Logotipo / nome do site -->
+        <a href="#hero" class="nav__logo" aria-label="Ir para o início">
+          Agro<span>Futuro</span>
+        </a>
+
+        <!-- Botão hambúrguer — aparece só no mobile -->
+        <button
+          class="nav__hamburger"
+          id="btnMenu"
+          aria-expanded="false"
+          aria-controls="menuPrincipal"
+          aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Lista de links de navegação -->
+        <ul class="nav__links" id="menuPrincipal" role="list">
+          <li><a href="#producao"       class="nav__link">Produção</a></li>
+          <li><a href="#sustentabilidade" class="nav__link">Sustentabilidade</a></li>
+          <li><a href="#desafios"       class="nav__link">Desafios</a></li>
+          <li><a href="#solucoes"       class="nav__link">Soluções</a></li>
+          <li><a href="#calculadora"    class="nav__link">Calculadora</a></li>
+          <li><a href="#quiz"           class="nav__link">Quiz</a></li>
+          <li>
+            <a href="#contato" class="nav__link nav__link--cta">Participe</a>
+          </li>
+        </ul>
+
+      </nav>
     </header>
+    <!-- /header -->
 
-    <main>
 
-        <section id="inicio">
-            <h2>Bem-vindo</h2>
-            <p>
-                O agronegócio é essencial para a economia brasileira.
-                Neste site você conhecerá tecnologias, desafios e soluções
-                para tornar a produção agrícola mais sustentável.
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL
+    ============================================================ -->
+    <main id="conteudo-principal">
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           SEÇÃO 0 — HERO (página inicial)
+           Banner principal + slogan + estatísticas de impacto
+      ────────────────────────────────────────────────────────── -->
+      <section id="hero" class="hero" aria-label="Apresentação">
+
+        <!-- Etiqueta temática -->
+        <span class="hero__badge">🌿 Educação Ambiental &amp; Agronegócio</span>
+
+        <!-- Título principal com palavra de destaque -->
+        <h1 class="hero__titulo">
+          Agro forte,<br />
+          <em class="hero__destaque">futuro sustentável</em>
+        </h1>
+
+        <!-- Subtítulo / pergunta norteadora -->
+        <p class="hero__sub">
+          Como o agronegócio pode crescer economicamente
+          sem comprometer os recursos naturais das futuras gerações?
+        </p>
+
+        <!-- Botões de chamada para ação (CTA) -->
+        <div class="hero__btns">
+          <a href="#producao" class="btn btn--primario">Explorar o site</a>
+          <a href="#quiz"     class="btn btn--fantasma">Fazer o quiz</a>
+        </div>
+
+        <!-- Estatísticas de impacto rápido -->
+        <div class="hero__stats" role="list" aria-label="Dados do agronegócio">
+
+          <div class="stat" role="listitem">
+            <span class="stat__num">27%</span>
+            <span class="stat__label">do PIB brasileiro</span>
+          </div>
+
+          <div class="stat" role="listitem">
+            <span class="stat__num">1/3</span>
+            <span class="stat__label">dos empregos nacionais</span>
+          </div>
+
+          <div class="stat" role="listitem">
+            <span class="stat__num">190M</span>
+            <span class="stat__label">hectares agricultáveis</span>
+          </div>
+
+          <div class="stat" role="listitem">
+            <span class="stat__num">2050</span>
+            <span class="stat__label">meta carbono neutro</span>
+          </div>
+
+        </div>
+
+        <!-- Onda decorativa que faz transição para a próxima seção -->
+        <div class="hero__onda" aria-hidden="true"></div>
+
+      </section>
+      <!-- /hero -->
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           SEÇÃO 1 — PRODUÇÃO AGRÍCOLA
+           Dados econômicos + tecnologias utilizadas no campo
+      ────────────────────────────────────────────────────────── -->
+      <section id="producao" class="secao" aria-labelledby="titulo-producao">
+
+        <div class="container">
+
+          <!-- Cabeçalho da seção -->
+          <header class="secao__cabecalho fade-in">
+            <span class="secao__badge">Seção 1</span>
+            <h2 class="secao__titulo" id="titulo-producao">
+              Produção agrícola<br />no Brasil
+            </h2>
+            <p class="secao__desc">
+              O agronegócio é o motor da economia brasileira, responsável por grande
+              parte das exportações e da geração de empregos no país.
             </p>
-        </section>
+          </header>
 
-        <section id="producao">
-            <h2>Produção Agrícola</h2>
-            <p>
-                O agronegócio gera empregos, movimenta a economia e utiliza
-                tecnologias modernas para aumentar a produtividade.
+          <!-- Grade de dados econômicos -->
+          <div class="grade-dados fade-in" role="list" aria-label="Dados econômicos">
+
+            <article class="dado-card" role="listitem">
+              <span class="dado-card__num">R$ 2,4 tri</span>
+              <span class="dado-card__label">Valor do agronegócio em 2023</span>
+              <p class="dado-card__desc">
+                Representando 27,4% do PIB nacional, com crescimento de 15%
+                em relação ao ano anterior.
+              </p>
+            </article>
+
+            <article class="dado-card" role="listitem">
+              <span class="dado-card__num">150 mi t</span>
+              <span class="dado-card__label">Produção de grãos estimada</span>
+              <p class="dado-card__desc">
+                Brasil é o 2º maior produtor de soja e maior exportador de
+                carne bovina, açúcar e etanol do mundo.
+              </p>
+            </article>
+
+            <article class="dado-card" role="listitem">
+              <span class="dado-card__num">19 mi</span>
+              <span class="dado-card__label">Empregos gerados</span>
+              <p class="dado-card__desc">
+                De trabalhadores rurais a profissionais de tecnologia
+                agrícola e logística de exportação.
+              </p>
+            </article>
+
+            <article class="dado-card" role="listitem">
+              <span class="dado-card__num">+80%</span>
+              <span class="dado-card__label">Crescimento na produtividade</span>
+              <p class="dado-card__desc">
+                Ganho em 20 anos sem expansão equivalente de área, graças
+                à tecnologia e à inovação no campo.
+              </p>
+            </article>
+
+          </div><!-- /grade-dados -->
+
+          <!-- Sub-título: tecnologias -->
+          <h3 class="secao__subtitulo fade-in">
+            Tecnologias que transformam o campo
+          </h3>
+
+          <!-- Grade de tecnologias -->
+          <div class="grade-tech fade-in" role="list" aria-label="Tecnologias agrícolas">
+
+            <article class="tech-card" role="listitem">
+              <span class="tech-card__icone" aria-hidden="true">🛰️</span>
+              <h4 class="tech-card__nome">Agricultura de Precisão</h4>
+              <p class="tech-card__desc">
+                Sensores, GPS e satélites monitoram o solo e as plantações
+                em tempo real, reduzindo o desperdício de insumos em até 40%.
+              </p>
+            </article>
+
+            <article class="tech-card" role="listitem">
+              <span class="tech-card__icone" aria-hidden="true">💧</span>
+              <h4 class="tech-card__nome">Irrigação Inteligente</h4>
+              <p class="tech-card__desc">
+                Sistemas automatizados liberam água apenas quando e onde
+                as plantas precisam, economizando até 50% do recurso hídrico.
+              </p>
+            </article>
+
+            <article class="tech-card" role="listitem">
+              <span class="tech-card__icone" aria-hidden="true">🚁</span>
+              <h4 class="tech-card__nome">Drones Agrícolas</h4>
+              <p class="tech-card__desc">
+                Pulverização seletiva, mapeamento de pragas e monitoramento
+                aéreo com precisão milimétrica e baixo custo operacional.
+              </p>
+            </article>
+
+            <article class="tech-card" role="listitem">
+              <span class="tech-card__icone" aria-hidden="true">☀️</span>
+              <h4 class="tech-card__nome">Energia Renovável</h4>
+              <p class="tech-card__desc">
+                Painéis solares e bioenergia da cana-de-açúcar tornam
+                as propriedades autossuficientes em energia limpa.
+              </p>
+            </article>
+
+          </div><!-- /grade-tech -->
+
+        </div><!-- /container -->
+
+      </section>
+      <!-- /producao -->
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           SEÇÃO 2 — SUSTENTABILIDADE
+           Práticas ecológicas, conservação do solo e energias limpas
+      ────────────────────────────────────────────────────────── -->
+      <section id="sustentabilidade" class="secao secao--verde"
+               aria-labelledby="titulo-sustentabilidade">
+
+        <div class="container">
+
+          <header class="secao__cabecalho fade-in">
+            <span class="secao__badge">Seção 2</span>
+            <h2 class="secao__titulo" id="titulo-sustentabilidade">
+              Sustentabilidade<br />no campo
+            </h2>
+            <p class="secao__desc">
+              Práticas ecológicas que garantem produção hoje sem comprometer
+              o amanhã — a aliança entre lucro e responsabilidade ambiental.
             </p>
-        </section>
+          </header>
 
-        <section id="sustentabilidade">
-            <h2>Sustentabilidade</h2>
-            <p>
-                Práticas sustentáveis ajudam a conservar o solo, economizar
-                água e reduzir impactos ambientais.
+          <!-- Grade de práticas sustentáveis -->
+          <div class="grade-praticas fade-in" role="list"
+               aria-label="Práticas sustentáveis">
+
+            <article class="pratica-card" role="listitem">
+              <span class="pratica-card__icone" aria-hidden="true">🌱</span>
+              <h3 class="pratica-card__titulo">Plantio Direto</h3>
+              <p class="pratica-card__texto">
+                O solo não é arado. A palha dos cultivos anteriores protege
+                a terra, retém umidade, reduz erosão e aumenta a matéria
+                orgânica. Adotado em 33 mi de hectares no Brasil.
+              </p>
+            </article>
+
+            <article class="pratica-card" role="listitem">
+              <span class="pratica-card__icone" aria-hidden="true">🌿</span>
+              <h3 class="pratica-card__titulo">Integração Lavoura-Pecuária</h3>
+              <p class="pratica-card__texto">
+                Alternância planejada entre cultivos agrícolas e pastagem
+                animal no mesmo espaço. Diversifica a renda, recupera solos
+                degradados e captura carbono.
+              </p>
+            </article>
+
+            <article class="pratica-card" role="listitem">
+              <span class="pratica-card__icone" aria-hidden="true">🔄</span>
+              <h3 class="pratica-card__titulo">Rotação de Culturas</h3>
+              <p class="pratica-card__texto">
+                Plantar diferentes espécies em sequência equilibra os
+                nutrientes do solo, quebra ciclos de pragas e reduz o
+                uso de defensivos químicos.
+              </p>
+            </article>
+
+            <article class="pratica-card" role="listitem">
+              <span class="pratica-card__icone" aria-hidden="true">🌲</span>
+              <h3 class="pratica-card__titulo">Reserva Legal e APPs</h3>
+              <p class="pratica-card__texto">
+                O Código Florestal exige a preservação de 20 a 80% da
+                propriedade como mata nativa, protegendo biodiversidade
+                e recursos hídricos.
+              </p>
+            </article>
+
+            <article class="pratica-card" role="listitem">
+              <span class="pratica-card__icone" aria-hidden="true">🪱</span>
+              <h3 class="pratica-card__titulo">Compostagem e Biofertilizantes</h3>
+              <p class="pratica-card__texto">
+                Resíduos orgânicos transformados em adubo rico reduzem
+                a dependência de fertilizantes sintéticos e diminuem
+                o descarte de lixo rural.
+              </p>
+            </article>
+
+            <article class="pratica-card" role="listitem">
+              <span class="pratica-card__icone" aria-hidden="true">⚡</span>
+              <h3 class="pratica-card__titulo">Energias Limpas</h3>
+              <p class="pratica-card__texto">
+                Solar fotovoltaico, biogás do dejeto animal e biomassa
+                transformam o campo em produtor de energia verde,
+                reduzindo a conta de luz e as emissões de CO₂.
+              </p>
+            </article>
+
+          </div><!-- /grade-praticas -->
+
+        </div><!-- /container -->
+
+      </section>
+      <!-- /sustentabilidade -->
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           SEÇÃO 3 — DESAFIOS AMBIENTAIS
+           Problemas atuais e consequências para o planeta
+      ────────────────────────────────────────────────────────── -->
+      <section id="desafios" class="secao" aria-labelledby="titulo-desafios">
+
+        <div class="container">
+
+          <header class="secao__cabecalho fade-in">
+            <span class="secao__badge">Seção 3</span>
+            <h2 class="secao__titulo" id="titulo-desafios">
+              Desafios<br />ambientais
+            </h2>
+            <p class="secao__desc">
+              Conhecer os problemas é o primeiro passo para superá-los.
+              Estes são os impactos que precisamos enfrentar com urgência.
             </p>
-        </section>
+          </header>
 
-        <section id="desafios">
-            <h2>Desafios Ambientais</h2>
-            <p>
-                Entre os principais desafios estão o desmatamento, a emissão
-                de carbono e o uso excessivo dos recursos naturais.
+          <!-- Layout de dois eixos: problemas + gráfico -->
+          <div class="desafios__layout fade-in">
+
+            <!-- Lista de problemas -->
+            <div class="desafios__problemas">
+
+              <article class="problema">
+                <div class="problema__icone" aria-hidden="true">🪵</div>
+                <div class="problema__info">
+                  <h3 class="problema__titulo">Desmatamento</h3>
+                  <p class="problema__texto">
+                    O Brasil perdeu mais de 10.000 km² de floresta nativa em 2023.
+                    Cerrado e Amazônia concentram os maiores índices de devastação
+                    associados à expansão agropecuária.
+                  </p>
+                  <p class="problema__alerta">
+                    ⚠ 10.476 km² desmatados em 2023 — fonte: INPE
+                  </p>
+                </div>
+              </article>
+
+              <article class="problema">
+                <div class="problema__icone" aria-hidden="true">💧</div>
+                <div class="problema__info">
+                  <h3 class="problema__titulo">Uso excessivo de água</h3>
+                  <p class="problema__texto">
+                    A agricultura consome 72% da água doce disponível no planeta.
+                    Técnicas inadequadas causam desperdício e comprometem rios,
+                    aquíferos e comunidades ribeirinhas.
+                  </p>
+                  <p class="problema__alerta">
+                    ⚠ 72% da água doce mundial vai para irrigação — fonte: FAO
+                  </p>
+                </div>
+              </article>
+
+              <article class="problema">
+                <div class="problema__icone" aria-hidden="true">🏭</div>
+                <div class="problema__info">
+                  <h3 class="problema__titulo">Emissão de carbono</h3>
+                  <p class="problema__texto">
+                    O agro responde por 27% das emissões globais de gases de efeito
+                    estufa — principalmente metano do gado, óxido nitroso dos
+                    fertilizantes e CO₂ do desmatamento.
+                  </p>
+                  <p class="problema__alerta">
+                    ⚠ 27% das emissões de GEE vêm do setor — fonte: IPCC
+                  </p>
+                </div>
+              </article>
+
+            </div><!-- /desafios__problemas -->
+
+            <!-- Gráfico de barras: fontes de emissão -->
+            <aside class="desafios__grafico" aria-label="Gráfico: fontes de emissão no agronegócio">
+
+              <h3 class="grafico__titulo">📊 Fontes de emissão no agronegócio</h3>
+
+              <!-- Cada item tem data-width para a animação via JS -->
+              <div class="barra" data-largura="41">
+                <div class="barra__topo">
+                  <span class="barra__label">Pecuária (metano)</span>
+                  <span class="barra__valor">41%</span>
+                </div>
+                <div class="barra__trilho" role="progressbar"
+                     aria-valuenow="41" aria-valuemin="0" aria-valuemax="100">
+                  <div class="barra__fill barra__fill--vermelho"></div>
+                </div>
+              </div>
+
+              <div class="barra" data-largura="28">
+                <div class="barra__topo">
+                  <span class="barra__label">Mudança no uso da terra</span>
+                  <span class="barra__valor">28%</span>
+                </div>
+                <div class="barra__trilho" role="progressbar"
+                     aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">
+                  <div class="barra__fill barra__fill--laranja"></div>
+                </div>
+              </div>
+
+              <div class="barra" data-largura="14">
+                <div class="barra__topo">
+                  <span class="barra__label">Fertilizantes (N₂O)</span>
+                  <span class="barra__valor">14%</span>
+                </div>
+                <div class="barra__trilho" role="progressbar"
+                     aria-valuenow="14" aria-valuemin="0" aria-valuemax="100">
+                  <div class="barra__fill barra__fill--amarelo"></div>
+                </div>
+              </div>
+
+              <div class="barra" data-largura="10">
+                <div class="barra__topo">
+                  <span class="barra__label">Maquinário e transporte</span>
+                  <span class="barra__valor">10%</span>
+                </div>
+                <div class="barra__trilho" role="progressbar"
+                     aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                  <div class="barra__fill barra__fill--azul"></div>
+                </div>
+              </div>
+
+              <div class="barra" data-largura="7">
+                <div class="barra__topo">
+                  <span class="barra__label">Outros</span>
+                  <span class="barra__valor">7%</span>
+                </div>
+                <div class="barra__trilho" role="progressbar"
+                     aria-valuenow="7" aria-valuemin="0" aria-valuemax="100">
+                  <div class="barra__fill barra__fill--cinza"></div>
+                </div>
+              </div>
+
+            </aside><!-- /desafios__grafico -->
+
+          </div><!-- /desafios__layout -->
+
+        </div><!-- /container -->
+
+      </section>
+      <!-- /desafios -->
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           SEÇÃO 4 — SOLUÇÕES E FUTURO
+           Inovações, agricultura regenerativa e papel da tecnologia
+      ────────────────────────────────────────────────────────── -->
+      <section id="solucoes" class="secao secao--escura"
+               aria-labelledby="titulo-solucoes">
+
+        <div class="container">
+
+          <header class="secao__cabecalho fade-in">
+            <span class="secao__badge secao__badge--claro">Seção 4</span>
+            <h2 class="secao__titulo secao__titulo--claro" id="titulo-solucoes">
+              Soluções e<br />o futuro
+            </h2>
+            <p class="secao__desc secao__desc--claro">
+              Inovações e abordagens regenerativas que provam: é possível
+              produzir mais com menos impacto ambiental.
             </p>
-        </section>
+          </header>
 
-        <section id="solucoes">
-            <h2>Soluções e Futuro</h2>
-            <p>
-                Agricultura de precisão, drones, irrigação inteligente e
-                energias renováveis são exemplos de soluções para um futuro
-                mais sustentável.
+          <div class="grade-solucoes fade-in" role="list"
+               aria-label="Soluções para o agronegócio sustentável">
+
+            <article class="solucao-card" role="listitem">
+              <span class="solucao-card__icone" aria-hidden="true">🌾</span>
+              <h3 class="solucao-card__titulo">
+                Agricultura Regenerativa
+                <span class="tag-novo">Inovação</span>
+              </h3>
+              <p class="solucao-card__texto">
+                Vai além da sustentabilidade: recupera ativamente solos
+                degradados, captura carbono atmosférico e restaura biodiversidade.
+              </p>
+            </article>
+
+            <article class="solucao-card" role="listitem">
+              <span class="solucao-card__icone" aria-hidden="true">🧬</span>
+              <h3 class="solucao-card__titulo">
+                Biotecnologia Agrícola
+                <span class="tag-novo">Inovação</span>
+              </h3>
+              <p class="solucao-card__texto">
+                Cultivares resistentes à seca e pragas. Biocontrole com
+                fungos e bactérias que substituem agrotóxicos convencionais.
+              </p>
+            </article>
+
+            <article class="solucao-card" role="listitem">
+              <span class="solucao-card__icone" aria-hidden="true">📡</span>
+              <h3 class="solucao-card__titulo">
+                Inteligência Artificial no Campo
+              </h3>
+              <p class="solucao-card__texto">
+                Modelos de IA preveem pragas, otimizam o plantio conforme
+                clima e solo e gerenciam frotas de máquinas autônomas.
+              </p>
+            </article>
+
+            <article class="solucao-card" role="listitem">
+              <span class="solucao-card__icone" aria-hidden="true">🏦</span>
+              <h3 class="solucao-card__titulo">
+                Crédito de Carbono Rural
+              </h3>
+              <p class="solucao-card__texto">
+                Produtores que preservam florestas podem vender créditos
+                de carbono no mercado internacional — gerando renda
+                enquanto protegem o meio ambiente.
+              </p>
+            </article>
+
+            <article class="solucao-card" role="listitem">
+              <span class="solucao-card__icone" aria-hidden="true">🌊</span>
+              <h3 class="solucao-card__titulo">
+                Gestão Hídrica Inteligente
+              </h3>
+              <p class="solucao-card__texto">
+                Reuso de água, cisternas rurais e gotejamento subsuperficial
+                reduzem o consumo hídrico em até 60% sem perda de produtividade.
+              </p>
+            </article>
+
+            <article class="solucao-card" role="listitem">
+              <span class="solucao-card__icone" aria-hidden="true">🤝</span>
+              <h3 class="solucao-card__titulo">
+                Cadeias Curtas e Orgânicos
+              </h3>
+              <p class="solucao-card__texto">
+                Feiras de produtores, cooperativas locais e certificação
+                orgânica conectam produtor e consumidor, estimulando
+                práticas ambientalmente responsáveis.
+              </p>
+            </article>
+
+          </div><!-- /grade-solucoes -->
+
+        </div><!-- /container -->
+
+      </section>
+      <!-- /solucoes -->
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           SEÇÃO BÔNUS A — CALCULADORA DE IMPACTO AMBIENTAL
+           Ferramenta interativa com JavaScript
+      ────────────────────────────────────────────────────────── -->
+      <section id="calculadora" class="secao secao--cinza"
+               aria-labelledby="titulo-calculadora">
+
+        <div class="container">
+
+          <header class="secao__cabecalho fade-in">
+            <span class="secao__badge">Ferramenta Interativa</span>
+            <h2 class="secao__titulo" id="titulo-calculadora">
+              Calculadora de<br />impacto ambiental
+            </h2>
+            <p class="secao__desc">
+              Estime as emissões de CO₂ de uma propriedade rural e veja
+              quanto pode ser reduzido com práticas sustentáveis.
             </p>
-        </section>
+          </header>
 
-        <section id="contato">
-            <h2>Contato</h2>
+          <div class="calculadora__layout fade-in">
 
-            <form> 
-                <label>Nome:</label><br>
-                <input type="text"><br><br>
+            <!-- Formulário de cálculo -->
+            <div class="calculadora__form">
+              <h3 class="calculadora__subtitulo">Dados da propriedade</h3>
 
-                <label>E-mail:</label><br>
-                <input type="email"><br><br>
+              <div class="campo">
+                <label class="campo__label" for="inputArea">
+                  Área total (hectares)
+                </label>
+                <input
+                  class="campo__input"
+                  type="number"
+                  id="inputArea"
+                  name="area"
+                  placeholder="Ex: 100"
+                  min="1"
+                  max="100000"
+                  aria-describedby="descArea" />
+                <span id="descArea" class="campo__dica">
+                  Informe a área total da propriedade em hectares.
+                </span>
+              </div>
 
-                <label>Mensagem:</label><br>
-                <textarea rows="5"></textarea><br><br>
+              <div class="campo">
+                <label class="campo__label" for="inputAtividade">
+                  Principal atividade
+                </label>
+                <select class="campo__select" id="inputAtividade"
+                        name="atividade">
+                  <option value="">Selecione...</option>
+                  <option value="soja">Soja</option>
+                  <option value="milho">Milho</option>
+                  <option value="cana">Cana-de-açúcar</option>
+                  <option value="pecuaria">Pecuária bovina</option>
+                  <option value="horticultura">Horticultura</option>
+                </select>
+              </div>
 
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
+              <div class="campo">
+                <label class="campo__label" for="inputPraticas">
+                  Práticas sustentáveis adotadas
+                </label>
+                <select class="campo__select" id="inputPraticas"
+                        name="praticas">
+                  <option value="nenhuma">Nenhuma</option>
+                  <option value="basica">Básicas (plantio direto)</option>
+                  <option value="intermediaria">
+                    Intermediárias (rotação + cobertura)
+                  </option>
+                  <option value="avancada">
+                    Avançadas (regenerativa + solar)
+                  </option>
+                </select>
+              </div>
+
+              <button
+                class="btn btn--primario btn--largo"
+                id="btnCalcular"
+                type="button">
+                Calcular impacto
+              </button>
+
+              <!-- Resultado — inicialmente oculto, exibido via JS -->
+              <div class="calculadora__resultado" id="resultadoCalc"
+                   aria-live="polite" hidden>
+                <p class="resultado__label">
+                  Emissão estimada (sem práticas sustentáveis)
+                </p>
+                <p class="resultado__num" id="resultadoNum">0</p>
+                <p class="resultado__unidade">t CO₂/ano</p>
+
+                <hr class="resultado__separador" />
+
+                <p class="resultado__label resultado__label--verde">
+                  Com as práticas selecionadas você reduz:
+                </p>
+                <p class="resultado__num resultado__num--verde"
+                   id="resultadoReducao">0</p>
+                <p class="resultado__unidade">t CO₂/ano</p>
+
+                <p class="resultado__dica" id="resultadoDica"></p>
+              </div>
+
+            </div><!-- /calculadora__form -->
+
+            <!-- Explicação do método -->
+            <aside class="calculadora__explicacao">
+              <h3 class="calculadora__subtitulo">Como funciona o cálculo?</h3>
+              <p>
+                Cada atividade agrícola tem um fator de emissão médio por hectare,
+                baseado em dados da Embrapa e do IPCC. O cálculo considera:
+              </p>
+              <ul class="calc__lista">
+                <li>
+                  <span aria-hidden="true">🐄</span>
+                  <strong>Pecuária:</strong> 2,5 t CO₂eq/ha/ano
+                  (metano entérico e do esterco)
+                </li>
+                <li>
+                  <span aria-hidden="true">🌱</span>
+                  <strong>Soja/Milho:</strong> 1,2 t CO₂eq/ha/ano
+                  (fertilizantes e combustível de máquinas)
+                </li>
+                <li>
+                  <span aria-hidden="true">📉</span>
+                  <strong>Práticas avançadas</strong> podem reduzir
+                  até 70% das emissões e ainda sequestrar carbono no solo.
+                </li>
+              </ul>
+            </aside><!-- /calculadora__explicacao -->
+
+          </div><!-- /calculadora__layout -->
+
+        </div><!-- /container -->
+
+      </section>
+      <!-- /calculadora -->
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           SEÇÃO BÔNUS B — QUIZ SOBRE SUSTENTABILIDADE
+           5 perguntas com feedback imediato e placar
+      ────────────────────────────────────────────────────────── -->
+      <section id="quiz" class="secao" aria-labelledby="titulo-quiz">
+
+        <div class="container">
+
+          <header class="secao__cabecalho secao__cabecalho--centro fade-in">
+            <span class="secao__badge">Quiz Interativo</span>
+            <h2 class="secao__titulo" id="titulo-quiz">
+              Teste seus<br />conhecimentos
+            </h2>
+            <p class="secao__desc">
+              Você sabe o suficiente sobre sustentabilidade no agronegócio?
+              5 perguntas para descobrir!
+            </p>
+          </header>
+
+          <!-- Caixa do quiz — controlada inteiramente por JavaScript -->
+          <div class="quiz fade-in" id="quizBox" aria-live="polite">
+
+            <!-- Barra de progresso -->
+            <div class="quiz__progresso" id="quizProgresso"
+                 role="progressbar" aria-label="Progresso do quiz"
+                 aria-valuenow="1" aria-valuemin="1" aria-valuemax="5">
+              <!-- 5 passos gerados dinamicamente pelo JS -->
+            </div>
+
+            <!-- Área da pergunta + opções (alternada pelo JS) -->
+            <div id="quizConteudo">
+              <p class="quiz__pergunta" id="quizPergunta"></p>
+              <div class="quiz__opcoes" id="quizOpcoes" role="list"></div>
+              <p class="quiz__feedback" id="quizFeedback"
+                 aria-live="assertive"></p>
+              <button class="btn btn--primario quiz__btn-proximo"
+                      id="btnProximo" type="button" hidden>
+                Próxima pergunta →
+              </button>
+            </div>
+
+            <!-- Tela de resultado final (oculta até o fim) -->
+            <div class="quiz__resultado" id="quizResultado" hidden>
+              <p class="quiz__pontos" id="quizPontos"></p>
+              <p class="quiz__msg"    id="quizMsg"></p>
+              <button class="btn btn--primario" id="btnReiniciar"
+                      type="button">
+                Tentar novamente
+              </button>
+            </div>
+
+          </div><!-- /quiz -->
+
+        </div><!-- /container -->
+
+      </section>
+      <!-- /quiz -->
+
+
+      <!-- ──────────────────────────────────────────────────────────
+           SEÇÃO 5 — CONTATO E CONSCIENTIZAÇÃO
+           Formulário de participação + mensagem final
+      ────────────────────────────────────────────────────────── -->
+      <section id="contato" class="secao secao--verde-mudo"
+               aria-labelledby="titulo-contato">
+
+        <div class="container">
+
+          <div class="contato__layout">
+
+            <!-- Texto de conscientização -->
+            <div class="contato__texto fade-in">
+              <span class="secao__badge">Seção 5 — Conscientização</span>
+
+              <blockquote class="contato__frase">
+                "Como o agronegócio pode crescer sem comprometer
+                os recursos das futuras gerações?"
+              </blockquote>
+
+              <p>
+                A resposta está na combinação de tecnologia, educação e
+                comprometimento de produtores, consumidores e governo.
+                Cada escolha conta — da mesa do agricultor ao prato
+                do consumidor.
+              </p>
+              <p>
+                Compartilhe este site, faça perguntas, discuta com
+                seus colegas. A transformação começa com informação.
+              </p>
+
+              <!-- Mini-métricas do site -->
+              <div class="contato__metricas" role="list">
+                <div class="metrica" role="listitem">
+                  <span class="metrica__num">100%</span>
+                  <span class="metrica__label">Gratuito e educativo</span>
+                </div>
+                <div class="metrica" role="listitem">
+                  <span class="metrica__num">5</span>
+                  <span class="metrica__label">Seções de conteúdo</span>
+                </div>
+                <div class="metrica" role="listitem">
+                  <span class="metrica__num">2</span>
+                  <span class="metrica__label">Ferramentas interativas</span>
+                </div>
+              </div>
+            </div><!-- /contato__texto -->
+
+            <!-- Formulário -->
+            <div class="contato__form-card fade-in">
+              <h3 class="contato__form-titulo">💬 Deixe seu recado</h3>
+
+              <!--
+                ATENÇÃO: formulários HTML precisam de um backend ou serviço
+                como Formspree / Netlify Forms para funcionar de verdade.
+                Aqui usamos action="#" para fins de demonstração.
+              -->
+              <form
+                class="contato__form"
+                id="formContato"
+                action="#"
+                method="post"
+                novalidate>
+
+                <div class="campo">
+                  <label class="campo__label" for="fNome">Seu nome</label>
+                  <input class="campo__input" type="text" id="fNome"
+                         name="nome" placeholder="Ex: Ana Luiza"
+                         required autocomplete="name" />
+                </div>
+
+                <div class="campo">
+                  <label class="campo__label" for="fEmail">E-mail</label>
+                  <input class="campo__input" type="email" id="fEmail"
+                         name="email" placeholder="seu@email.com"
+                         required autocomplete="email" />
+                </div>
+
+                <div class="campo">
+                  <label class="campo__label" for="fEscola">
+                    Escola ou instituição
+                  </label>
+                  <input class="campo__input" type="text" id="fEscola"
+                         name="escola" placeholder="Ex: ETEC João Pessoa" />
+                </div>
+
+                <div class="campo">
+                  <label class="campo__label" for="fMensagem">
+                    Sua mensagem ou dúvida
+                  </label>
+                  <textarea
+                    class="campo__textarea"
+                    id="fMensagem"
+                    name="mensagem"
+                    rows="4"
+                    placeholder="O que você aprendeu? Tem alguma dúvida?"
+                    required></textarea>
+                </div>
+
+                <button class="btn btn--primario btn--largo"
+                        type="submit" id="btnEnviar">
+                  Enviar mensagem
+                </button>
+
+                <!-- Mensagem de sucesso (exibida via JS) -->
+                <p class="form__sucesso" id="formSucesso"
+                   role="alert" hidden>
+                  ✅ Mensagem enviada! Obrigado pela participação.
+                </p>
+
+              </form>
+
+            </div><!-- /contato__form-card -->
+
+          </div><!-- /contato__layout -->
+
+        </div><!-- /container -->
+
+      </section>
+      <!-- /contato -->
+
 
     </main>
+    <!-- /main -->
 
-    <footer>
-        <p>Projeto AGRINHO 2026 - Agro Forte, Futuro Sustentável</p>
+
+    <!-- ============================================================
+         RODAPÉ
+    ============================================================ -->
+    <footer class="rodape" role="contentinfo">
+      <div class="container">
+
+        <p class="rodape__logo">AgroFuturo</p>
+        <p class="rodape__slogan">
+          Agro forte, futuro sustentável:<br />
+          equilíbrio entre produção e meio ambiente
+        </p>
+
+        <!-- Links de rodapé para navegação rápida -->
+        <nav aria-label="Links de rodapé">
+          <ul class="rodape__links" role="list">
+            <li><a href="#producao">Produção Agrícola</a></li>
+            <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+            <li><a href="#desafios">Desafios Ambientais</a></li>
+            <li><a href="#solucoes">Soluções</a></li>
+            <li><a href="#calculadora">Calculadora</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+          </ul>
+        </nav>
+
+        <p class="rodape__copy">
+          Site educativo desenvolvido como projeto escolar —
+          Programa Agrinho 2026 &copy; 2025
+        </p>
+
+      </div>
     </footer>
+    <!-- /footer -->
 
-</body>
+
+    <!-- ============================================================
+         SCRIPTS JAVASCRIPT
+         Carregados no final do body para não bloquear a renderização
+    ============================================================ -->
+
+    <!-- Script principal (será criado em assets/js/main.js) -->
+    <script src="assets/js/main.js"></script>
+
+  </body>
 </html>
